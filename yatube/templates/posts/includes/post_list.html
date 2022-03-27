@@ -1,9 +1,8 @@
 {% load thumbnail %}
-<article>
+<article class="container">
   <ul>
     <li>
       Автор: {{ post.author.get_full_name }}
-      <a href="{% url 'posts:profile' post.author %}">все посты пользователя</a>
     </li>
     <li>
       Дата публикации: {{ post.pub_date|date:"d E Y" }}
@@ -13,7 +12,7 @@
   <img class="card-img my-2" src="{{ im.url }}">
   {% endthumbnail %}
   <p>
-    {{ post.text }}
+    {{ post.text|linebreaksbr }}
   </p>
-  <a href="{% url 'posts:post_detail' post.pk %}">подробная информация</a>
-</article>
+  <a class="btn btn-primary btn-sm" href="{% url 'posts:post_detail' post.pk %}" role="button">Подробно</a>
+  <a class="btn btn-primary btn-sm" href="{% url 'posts:profile' post.author %}" role="button">Все посты пользователя</a>

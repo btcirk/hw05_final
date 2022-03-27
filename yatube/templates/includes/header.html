@@ -1,5 +1,6 @@
 <!-- templates/includes/header.html -->
 {% load static %}
+<div>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightskyblue">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'posts:index' %}">
@@ -16,15 +17,15 @@
     Класс nav-pills нужен для выделения активных пунктов
     {% endcomment %}
     {% with request.resolver_match.view_name as view_name %}
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link {% if view_name  == 'about:author' %}active{% endif %}" href="{% url 'about:author' %}">Об авторе</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {% if view_name  == 'about:tech' %}active{% endif %}" href="{% url 'about:tech' %}">Технологии</a>
+          <a class="nav-link {% if view_name  == 'posts:index' %}active{% endif %}" href="{% url 'posts:index' %}">Главная</a>
         </li>
         {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link {% if view_name  == 'posts:follow_index' %}active{% endif %}" href="{% url 'posts:follow_index' %}" href="{% url 'posts:follow_index' %}">Подписки</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link {% if view_name  == 'posts:post_create' %}active{% endif %}" href="{% url 'posts:post_create' %}" href="{% url 'posts:post_create' %}">Новая запись</a>
         </li>
@@ -51,3 +52,4 @@
     {# Конец добавленого в спринте #}
   </div>
 </nav>
+</div>

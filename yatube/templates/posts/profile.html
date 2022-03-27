@@ -25,7 +25,7 @@
     {% endif %}
   </div>
   {% for post in page_obj %}
-    <article>
+    <article class="container">
       <ul>
         <li>
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
@@ -35,13 +35,13 @@
         <img class="card-img my-2" src="{{ im.url }}">
       {% endthumbnail %}
       <p>
-        {{ post.text }}
+        {{ post.text|linebreaksbr }}
       </p>
-      <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
-    </article>
+      <a class="btn btn-primary btn-sm" href="{% url 'posts:post_detail' post.pk %}" role="button">Подробно</a>
     {% if post.group %}
-      <a href="{% url 'posts:group' post.group.slug %}">все записи группы</a>
+      <a class="btn btn-primary btn-sm" href="{% url 'posts:group' post.group.slug %}" role="button">Все записи группы</a>
     {% endif %}
+    </article>
     {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}
   {% include 'posts/includes/paginator.html' %}

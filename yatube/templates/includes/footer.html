@@ -1,4 +1,8 @@
       <!-- includes/footer.html -->
       <footer class="border-top text-center py-3">
-        <p>© {{ year }} Copyright <span style="color:red">Ya</span>tube</p>
+        <p>
+            <a href="{% url 'about:author' %}">Об авторе</a>
+            <a href="{% url 'about:tech' %}">Технологии</a>
+            © {{ year }} Copyright <span style="color:red">Ya</span>tube
+        </p>
       </footer>
