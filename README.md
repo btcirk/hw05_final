@@ -6,10 +6,10 @@
 
 ### Технологии
 Python 3.8  
-Django 2.2.19
-Bootstrap 5
-SQLite
-Faker
+Django 2.2  
+Bootstrap 5  
+SQLite3   
+Faker 
 
 ### Запуск проекта в dev-режиме
 - Установить и активировать виртуальное окружение
