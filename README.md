@@ -11,16 +11,26 @@ Bootstrap 5
 SQLite3   
 Faker 
 
-### Запуск проекта в dev-режиме
+### Запуск проекта в dev-режиме:
+
 - Установить и активировать виртуальное окружение
 ```
 python3 -m venv venv
+source env/bin/activate
+python3 -m pip install --upgrade pip
 ```
+
 - Установить зависимости из файла requirements.txt
 ```
 pip install -r requirements.txt
-``` 
-- В папке с файлом manage.py выполнить команду:
+```
+
+- Выполнить миграции
+```
+python3 manage.py migrate
+```
+ 
+- Запустить проект
 ```
 python3 manage.py runserver
 ```
